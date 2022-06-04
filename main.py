@@ -1,3 +1,4 @@
+from pprint import pprint
 from random import choice
 
 
@@ -81,11 +82,13 @@ def main() -> None:
     with open('words.txt', 'r', encoding='utf-8') as file:
         words = file.read().split()
         while words:
-            suggested_word = choice(words)
-            print(f'Enter the {suggested_word} into the game')
+            print('Choose one of the words and enter it into guesser and a game:')
+            print(*words)
+            suggested_word = input()
             answer = input()
             if answer == '22222':
                 print(f'Congratulations you won')
+                break
             words = filter_words(words, suggested_word, answer)
 
 
